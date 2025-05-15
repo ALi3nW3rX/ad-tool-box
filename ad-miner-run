@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CLIENT_NAME=$1
+
+if [ -z "$CLIENT_NAME" ]; then
+  echo "Usage: ./ad-miner-run <client_name>"
+  exit 1
+fi
+
+docker compose exec ad-miner AD-miner -cf "$CLIENT_NAME" -u neo4j -p bloodhoundcommunityedition -b bolt://graph-db:7687
